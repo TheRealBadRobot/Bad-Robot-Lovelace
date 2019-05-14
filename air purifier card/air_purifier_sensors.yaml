@@ -1,0 +1,33 @@
+  - platform: template
+    sensors:
+      purifier_fan_mode:
+        friendly_name: "ventilátor mód"
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.speed }}"
+      purifier_fan_speed:
+        friendly_name: "ventilátor_sebesség"
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.motor_speed }}"
+      purifier_fan_speed2:
+        friendly_name: "ventilátor2 sebesség"
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.motor2_speed }}"
+      purifier_temperature:
+        friendly_name: "hőmérséklet"
+        unit_of_measurement: 'C°'
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.temperature }}"
+      purifier_humidity:
+        friendly_name: "páratartalom"
+        unit_of_measurement: '%'
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.humidity }}"
+      purifier_aqi:
+        friendly_name: "levegő minőség index"
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.aqi }}"  
+      purifier_favspeed:
+        friendly_name: "ventilátor kedvenc sebesség"
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.favorite_level }}"
+      purifier_filter_hours_used:
+        friendly_name: "filterhasználat"
+        unit_of_measurement: 'óra'
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.filter_hours_used }}"
+      purifier_filter_life_remaining:
+        friendly_name: "filter"
+        unit_of_measurement: '%'
+        value_template: "{{ states.fan.xiaomi_miio_device.attributes.filter_life_remaining }}"        
