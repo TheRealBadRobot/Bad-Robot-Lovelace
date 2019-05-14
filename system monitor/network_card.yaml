@@ -1,0 +1,72 @@
+card:
+  color: white
+  entities:
+    - cards:
+        - cards:
+            - card:
+                animate: true
+                entities:
+                  - entity: sensor.miwifi_router_kbyte_sec_received
+                    name: fogadott
+                    show_state: true
+                  - entity: sensor.miwifi_router_kbyte_sec_sent
+                    name: küldött
+                    show_state: true
+                font_size: 80
+                graph: line
+                hour24: true
+                hours_to_show: 1
+                name: MiWiFi R1D
+                points_per_hour: 30
+                show_icon: false
+                type: 'custom:mini-graph-card'
+              style:
+                background-color: 'rgba(0,0,20,0.6)'
+                background-repeat: no-repeat
+                background-size: 100% 100%
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 20px
+              type: 'custom:card-modder'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+    - cards:
+        - cards:
+            - card_style:
+                background: 'rgba(0,0,20,.5)'
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 12px
+              color: '#FFA50090'
+              entities:
+                - sensor.miwifi_router_kbyte_sec_received
+              max: 1200
+              title: letöltés
+              title_position: left
+              type: 'custom:bar-card'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+    - cards:
+        - cards:
+            - card_style:
+                background: 'rgba(0,0,20,.5)'
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 12px
+              color: 'rgba(57,128,228,0.6)'
+              entities:
+                - sensor.miwifi_router_kbyte_sec_received
+              max: 500
+              title: feltöltés
+              title_position: left
+              type: 'custom:bar-card'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+  show_header_toggle: false
+  title: Adatforgalom
+  type: entities
+style:
+  background-color: 'rgba(0,0,20,0.6)'
+  background-image: url("/local/pictures/cardback.png")
+  background-repeat: no-repeat
+  background-size: 100% 100%
+  border: 'solid 1px rgba(57,128,228,0.4)'
+  border-radius: 20px
+type: 'custom:card-modder'

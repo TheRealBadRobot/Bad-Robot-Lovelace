@@ -1,0 +1,80 @@
+  - platform: template
+    sensors:
+      vacuum_start_time:
+        friendly_name: 'Takarítás indítási idő'
+        value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.vacuum_start_hour") | int, states("input_number.vacuum_start_minutes") | int) }}'    
+      vacuum_start_time_weekdays:
+        friendly_name: 'Takarítás indítási idő (Hétköznap)'
+        value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.vacuum_start_hour_weekdays") | int, states("input_number.vacuum_start_minutes_weekdays") | int) }}'
+      vacuum_start_time_weekend:
+        friendly_name: 'Takarítás indítási idő (Hétvége)'
+        value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.vacuum_start_hour_weekend") | int, states("input_number.vacuum_start_minutes_weekend") | int) }}'
+      vacuum_status:
+        friendly_name: "Állapot"
+        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}"
+        icon_template: >
+          {% set val =  states.vacuum.xiaomi_vacuum_cleaner.attributes.status  %}
+          {% if val == 'Charging' %}
+            mdi:battery-charging
+          {% elif val == 'Cleaning' %}
+            mdi:move-resize
+          {% elif val == 'Returning home' %}
+            mdi:keyboard-return
+          {% elif val == 'Idle' %}
+            mdi:dots-horizontal
+          {% elif val == 'Paused' %}
+            mdi:pause-circle
+          {% else %}
+            mdi:help-circle
+          {% endif %}
+      vacuum_timer:
+        friendly_name: "Vacuum - Timer"
+        value_template: "Időzítő:"
+      vacuum_weekdays:
+        friendly_name: "Vacuum - Weekdays"
+        value_template: "Hétköznap:"
+      vacuum_weekend:
+        friendly_name: "Vacuum - Weekend"
+        value_template: "Hétvége:"
+      vacuum_battery:
+        friendly_name: "Akku"
+        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}"
+        device_class: battery
+        unit_of_measurement: '%'
+      vacuum_accessories:
+        friendly_name: "Vacuum - Kellékek"
+        value_template: "KELLÉKEK"
+      vacuum_operation:
+        friendly_name: "Vacuum - Üzemelés"
+        value_template: "ÜZEMELÉS"
+      vacuum_main_brush:
+        friendly_name: "Fő kefe"
+        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }} h"
+      vacuum_side_brush:
+        friendly_name: "Első kefe"
+        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }} h"
+      vacuum_filter:
+        friendly_name: "Filter"
+        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }} h"
+      vacuum_sensor:
+        friendly_name: "Szenzorok"
+        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }} h"  
+      vacuum_fan_speed:
+        friendly_name: Mód
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.fan_speed }}"
+        icon_template: mdi:speedometer
+      vacuum_cleaning_time:
+        friendly_name: Utolsó takarítás ideje
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time }}'
+        icon_template: mdi:timer
+      vacuum_cleaned_area:
+        friendly_name: Utoljára takarított terület
+        unit_of_measurement: 'm ²'
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area }}'
+        icon_template: mdi:ruler

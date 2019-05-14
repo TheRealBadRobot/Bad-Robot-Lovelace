@@ -1,0 +1,255 @@
+card:
+  cards:
+    - elements:
+        - icon: 'mdi:bell-ring'
+          style:
+            '--iron-icon-fill-color': '#1E90FF'
+            left: 80%
+            top: 90%
+          tap_action:
+            action: call-service
+            service: vacuum.locate
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          type: icon
+        - icon: 'mdi:home'
+          style:
+            '--iron-icon-fill-color': '#1E90FF'
+            left: 65%
+            top: 90%
+          tap_action:
+            action: call-service
+            service: vacuum.return_to_base
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          type: icon
+        - icon: 'mdi:play'
+          style:
+            '--iron-icon-fill-color': '#1E90FF'
+            left: 50%
+            top: 90%
+          tap_action:
+            action: call-service
+            service: vacuum.start
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          type: icon
+        - icon: 'mdi:pause'
+          style:
+            '--iron-icon-fill-color': '#1E90FF'
+            left: 35%
+            top: 90%
+          tap_action:
+            action: call-service
+            service: vacuum.pause
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          type: icon
+        - icon: 'mdi:stop'
+          style:
+            '--iron-icon-fill-color': '#1E90FF'
+            left: 20%
+            top: 90%
+          tap_action:
+            action: call-service
+            service: vacuum.stop
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          type: icon
+        - entity: sensor.vacuum_operation
+          style:
+            background-color: 'rgba(57,128,228,0.8)'
+            border-color: 'rgb(34, 154, 210)'
+            border-radius: 6px
+            color: 'rgb(255, 255, 255)'
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            left: 3%
+            pointer-events: none
+            top: 10%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_accessories
+          style:
+            background-color: 'rgba(57,128,228,0.8)'
+            border-color: 'rgb(34, 154, 210,)'
+            border-radius: 6px
+            color: 'rgb(255, 255, 255)'
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            pointer-events: none
+            right: 3%
+            top: 10%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: vacuum.xiaomi_vacuum_cleaner
+          style:
+            background-color: 'rgb(250,250,250, .8)'
+            border-color: 'rgb(34, 154, 210)'
+            border-radius: 6px
+            color: 'rgb(0, 0, 0)'
+            font-family: Trebuchet MS
+            font-size: 100%
+            font-weight: bold
+            left: 50%
+            margin-right: '-50%'
+            padding: 70px 0;
+            top: 10%
+            transform: 'translate(-50%,-50%)'
+          tap_action:
+            action: more-info
+          type: state-label
+        - entity: sensor.vacuum_main_brush
+          prefix: 'Fő kefe: '
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            opacity: 0.8
+            pointer-events: none
+            right: 1%
+            text-shadow: 1px 1px black
+            top: 30%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_side_brush
+          prefix: 'Oldal kefe: '
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            opacity: 0.8
+            pointer-events: none
+            right: 1%
+            text-shadow: 1px 1px black
+            top: 45%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_filter
+          prefix: 'Filter: '
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            opacity: 0.8
+            pointer-events: none
+            right: 1%
+            text-shadow: 1px 1px black
+            top: 60%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_sensor
+          prefix: 'Szenzorok: '
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            opacity: 0.8
+            pointer-events: none
+            right: 1%
+            text-shadow: 1px 1px black
+            top: 75%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_status
+          prefix: 'Állapot: '
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            left: 1%
+            opacity: 0.8
+            pointer-events: none
+            text-shadow: 1px 1px black
+            top: 30%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_battery
+          prefix: 'Akku: '
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            left: 1%
+            opacity: 0.8
+            pointer-events: none
+            text-shadow: 1px 1px black
+            top: 45%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_fan_speed
+          prefix: 'Mód: '
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            left: 1%
+            opacity: 0.8
+            pointer-events: none
+            text-shadow: 1px 1px black
+            top: 60%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_cleaned_area
+          prefix: 'Terület:'
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            left: 31%
+            pointer-events: none
+            text-shadow: 1px 1px black
+            top: 80%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_cleaning_time
+          prefix: 'Idő:'
+          style:
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            left: 55%
+            pointer-events: none
+            text-shadow: 1px 1px black
+            top: 80%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: sensor.vacuum_timer
+          style:
+            color: 'rgb(255, 255, 255)'
+            font-family: Trebuchet MS
+            font-size: 80%
+            font-weight: bold
+            left: 1%
+            opacity: 0.8
+            pointer-events: none
+            text-shadow: 1px 1px black
+            top: 75%
+            transform: 'translate(0%,-50%)'
+          type: state-label
+        - entity: automation.takaritas_utemezese
+          image: /local/pictures/timer_off.png
+          state_filter:
+            'off': brightness(80%) saturate(0.8)
+            'on': brightness(200%) saturate(1.8)
+          state_image:
+            'on': /local/pictures/timer.png
+          style:
+            left: 20%
+            top: 75%
+          tap_action:
+            action: toggle
+          type: image
+      image: /local/pictures/roberta.png
+      type: picture-elements
+  type: vertical-stack
+style:
+  background-color: 'rgba(0,0,20,0.3)'
+  background-image: url("/local/pictures/cardback.png")
+  background-repeat: no-repeat
+  background-size: 100% 100%
+  border: 'solid 1px rgba(57,128,228,0.4)'
+  border-radius: 20px
+type: 'custom:card-modder'

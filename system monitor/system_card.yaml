@@ -1,0 +1,150 @@
+card:
+  color: white
+  entities:
+    - cards:
+        - cards:
+            - card:
+                animate: true
+                entities:
+                  - sensor.cpu_temp
+                graph: line
+                hour24: true
+                name: CPU hőmérséklet
+                show:
+                  extrema: true
+                  icon: false
+                  name: false
+                type: 'custom:mini-graph-card'
+              style:
+                background-color: 'rgba(0,0,20,0.3)'
+                background-size: 100% 100%
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 20px
+                transform: scale(0.95)
+              type: 'custom:card-modder'
+            - card:
+                animate: true
+                entities:
+                  - sensor.processor_use
+                graph: line
+                hour24: true
+                hours_to_show: 24
+                line_color: 'rgba(57,128,228)'
+                show:
+                  extrema: true
+                  icon: false
+                  name: false
+                type: 'custom:mini-graph-card'
+              style:
+                background-color: 'rgba(0,0,20,0.3)'
+                background-repeat: no-repeat
+                background-size: 100% 100%
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 20px
+                transform: scale(0.95)
+              type: 'custom:card-modder'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+    - cards:
+        - cards:
+            - card_style:
+                background: 'rgba(0,0,20,.5)'
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 12px
+                transform: scale(0.95)
+              color: '#FFA50090'
+              entities:
+                - sensor.cpu_temp
+              max: 80
+              title: CPU hőmérséklet
+              title_position: inside
+              title_style:
+                font-size: 12px
+              type: 'custom:bar-card'
+            - card_style:
+                background: 'rgba(0,0,20,.5)'
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 12px
+                transform: scale(0.95)
+              color: 'rgba(57,128,228,0.6)'
+              entities:
+                - sensor.processor_use
+              max: 100
+              title: CPU használat
+              title_position: inside
+              title_style:
+                font-size: 12px
+              type: 'custom:bar-card'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+    - cards:
+        - cards:
+            - card_style:
+                background: 'rgba(0,0,20,.5)'
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 12px
+              color: '#FFA50090'
+              entities:
+                - sensor.memory_use
+              max: 8000
+              title: használt memória
+              title_position: left
+              type: 'custom:bar-card'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+    - cards:
+        - cards:
+            - card_style:
+                background: 'rgba(0,0,20,.5)'
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 12px
+              color: 'rgba(57,128,228,0.6)'
+              entities:
+                - sensor.memory_free
+              max: 8000
+              title: szabad memória
+              title_position: left
+              type: 'custom:bar-card'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+    - cards:
+        - cards:
+            - card_style:
+                background: 'rgba(0,0,20,.5)'
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 12px
+              color: '#FFA50090'
+              entities:
+                - sensor.disk_use_percent_home
+              max: 100
+              title: foglalt terület
+              title_position: left
+              type: 'custom:bar-card'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+    - cards:
+        - cards:
+            - card_style:
+                background: 'rgba(0,0,20,.5)'
+                border: 'solid 1px rgba(57,128,228,0.4)'
+                border-radius: 12px
+              color: 'rgba(57,128,228,0.6)'
+              entities:
+                - sensor.hass_db_meret
+              max: 500
+              title: adatbázis mérete
+              title_position: left
+              type: 'custom:bar-card'
+          type: horizontal-stack
+      type: 'custom:vertical-stack-in-card'
+  show_header_toggle: false
+  title: NUC/Hassio
+  type: entities
+style:
+  background-color: 'rgba(0,0,20,0.6)'
+  background-image: url("/local/pictures/cardback.png")
+  background-repeat: no-repeat
+  background-size: 100% 100%
+  border: 'solid 1px rgba(57,128,228,0.4)'
+  border-radius: 20px
+type: 'custom:card-modder'
